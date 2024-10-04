@@ -23,14 +23,15 @@ from rest_framework import permissions
 
 schema_view = get_schema_view(
     openapi.Info(
-        title="LastFloors Api",
+        title="Country & State Api",
         default_version="v0.0.1",
-        description="CoderMungan",
+        description="Melih",
         terms_of_service="https://www.google.com/policies/terms/",
-        contact=openapi.Contact(email="nietzsche@lastfloors.com"),
+        contact=openapi.Contact(email="melihciray@gmail.com"),
         license=openapi.License(name="MIT License"),
     ),
     public=True,
+    authentication_classes=[],
     permission_classes=(permissions.AllowAny,),
 )
 
