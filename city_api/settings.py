@@ -82,7 +82,8 @@ REST_FRAMEWORK = {
     ],
     'DEFAULT_THROTTLE_RATES': {
         'anon': '20/minute',  
-    }
+    },
+    'DEFAULT_AUTHENTICATION_CLASSES': [],
 }
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
@@ -131,7 +132,10 @@ USE_TZ = True
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, ""), 
 ]
-STATIC_URL = 'static/'
+STATIC_ROOT = str(BASE_DIR / "staticfiles")
+# https://docs.djangoproject.com/en/dev/ref/settings/#static-url
+STATIC_URL = "/static/"
+# https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#std:setting-STATICFILES_DIRS
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
