@@ -1,9 +1,10 @@
 import json
 import os
 from django.conf import settings
+from django.shortcuts import render
 from rest_framework.views import APIView
 from django.http import JsonResponse
-import locale
+
 class CountryListView(APIView):
     def get(self, request):
         # JSON dosyasının proje kök dizinindeki yolunu belirleyin
@@ -90,3 +91,7 @@ class StateDetailView(APIView):
                 return JsonResponse({"error": "State not found"}, status=404)
         else:
             return JsonResponse({"error": "Country not found"}, status=404)
+        
+class HomePageView(APIView):
+    def get(self, request):
+        return render(request, 'index.html')
