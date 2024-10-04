@@ -4,8 +4,9 @@ from django.conf import settings
 from django.shortcuts import render
 from rest_framework.views import APIView
 from django.http import JsonResponse
-
+from rest_framework.throttling import AnonRateThrottle
 class CountryListView(APIView):
+    throttle_classes = [AnonRateThrottle]
     def get(self, request):
         # JSON dosyasının proje kök dizinindeki yolunu belirleyin
         json_file_path = os.path.join(settings.BASE_DIR, 'countries+states+cities.json')
@@ -22,6 +23,7 @@ class CountryListView(APIView):
         return JsonResponse(data, safe=False)
 
 class CountryDetailView(APIView):
+    throttle_classes = [AnonRateThrottle]
     def get(self, request, country_name):
         # JSON dosyasının proje kök dizinindeki yolunu belirleyin
         json_file_path = os.path.join(settings.BASE_DIR, 'countries+states+cities.json')
@@ -43,6 +45,7 @@ class CountryDetailView(APIView):
             return JsonResponse({"error": "Country not found"}, status=404)
 
 class StateListView(APIView):
+    throttle_classes = [AnonRateThrottle]
     def get(self, request, country_name):
         # JSON dosyasının proje kök dizinindeki yolunu belirleyin
         json_file_path = os.path.join(settings.BASE_DIR, 'countries+states+cities.json')
@@ -66,6 +69,7 @@ class StateListView(APIView):
 
 
 class StateDetailView(APIView):
+    throttle_classes = [AnonRateThrottle]
     def get(self, request, country_name, state_name):
         # JSON dosyasının proje kök dizinindeki yolunu belirleyin
         json_file_path = os.path.join(settings.BASE_DIR, 'countries+states+cities.json')
@@ -93,5 +97,6 @@ class StateDetailView(APIView):
             return JsonResponse({"error": "Country not found"}, status=404)
         
 class HomePageView(APIView):
+    throttle_classes = [AnonRateThrottle]
     def get(self, request):
         return render(request, 'index.html')
