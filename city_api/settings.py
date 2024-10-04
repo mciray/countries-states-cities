@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'locations',
     'rest_framework',
+    'drf_yasg',
     
 ]
 
@@ -74,6 +75,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'city_api.wsgi.application'
 
 REST_FRAMEWORK = {
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
     'DEFAULT_THROTTLE_CLASSES': [
         'rest_framework.throttling.AnonRateThrottle',  
     ],

@@ -157,6 +157,14 @@
             <p class="text-danger">First letter of state name must be capitalized</p>
             <pre><code>GET https://melihc.pythonanywhere.com/api/countries/turkey/states/istanbul/</code></pre>
         </div>
+        <div class="text-center">
+            <a href="{% url 'schema-swagger-ui' %}" class="btn btn-primary" target="_blank">Swagger API Documentation</a>
+        </div>
+        
+        <!-- Redoc'a yönlendiren buton -->
+        <div class="text-center mt-3">
+            <a href="{% url 'schema-redoc' %}" class="btn btn-secondary" target="_blank">Redoc API Documentation</a>
+        </div>
     </div>
 </section>
 
